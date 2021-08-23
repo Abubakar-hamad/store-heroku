@@ -14,6 +14,7 @@ from pathlib import Path , os
 
 import os
 import django_on_heroku
+
 from decouple import config
 
 
@@ -29,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '*e@2nz1s-8so6t)f3%d=za4*9uz1l4&1)+xa2bp525oc3qw*3y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['store-ous.herokuapp.com//' , '127.0.0.1']
 
@@ -151,6 +152,9 @@ LOCALE_PATHS = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR , 'staticfiles')
+
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR , 'static' , 'site_static/')
 STATICFILES_DIRS = [
@@ -161,7 +165,6 @@ STATICFILES_DIRS = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATIC_ROOT = os.path.join(BASE_DIR , 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
 
@@ -189,6 +192,7 @@ EMAIL_PORT =  '587'
 
 
 django_on_heroku.settings(locals())
+# TEST_RUNNER = 'django_heroku.HerokuDiscoverRunner'
 
 
 
