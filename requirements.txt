@@ -1,7 +1,7 @@
 # Brlapi==0.7.0
 # apturl==0.5.2
 # chrome-gnome-shell==0.0.0
-command-not-found==0.3
+# command-not-found==0.3
 appdirs==1.4.3
 asgiref==3.3.1
 awesome-slugify==1.6.5
