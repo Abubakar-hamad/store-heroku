@@ -9,13 +9,15 @@
 
 
 
-<div class="container" style="width: 500px; height: fit-content;">
+<div class="container" >
   <div class="row">
 
     <div class="contact-form">
       <h1>{% trans 'Contact Us' %}</h1>
 
-      <form action="" method="POST">
+      <form style=" margin:auto;
+      width: 75%;
+      padding: 10px;" action="" method="POST">
         {% csrf_token %}
 
 

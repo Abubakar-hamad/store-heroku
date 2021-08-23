@@ -13,7 +13,7 @@
 
 
 
-<div class="container" style="width: 500px; height: fit-content;">
+<div class="container">
   <div class="row">
 
     <div class="contact-form">
@@ -31,7 +31,7 @@
       {% endif %}
       {% endif %}
 
-      <form method="post" action="{% url 'login' %}">
+      <form  method="post" action="{% url 'login' %}">
         <h1>Log in</h1>
         <hr>
         {% csrf_token %}
