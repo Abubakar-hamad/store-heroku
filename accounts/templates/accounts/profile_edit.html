@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+{% load bootstrap4 %}
+
+{% load i18n %}
+
+{% block content %}
+{% load static %}
+
+
+<div class="product-big-title-area">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="product-bit-title text-center">
+
+                  <h2 style="font-family: 'Times New Roman', Times, serif ; text-align:center">{% trans 'Edit My Profile' %}</h2>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="product-breadcroumb">
+
+    {% if messages %}
+<ul class="messages">
+{% for message in messages %}
+<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+    
+   </div>
+  
+
+
+{% if LANGUAGE_CODE == 'ar' %}
+<form class="update_form" method="post" enctype="multipart/form-data" style="text-align: right; direction: rtl;" >
+    <div class=" col-lg-6" style="font-family: 'Times New Roman', Times, serif;">
+        
+    {% csrf_token %}
+    
+    
+    {% bootstrap_form profile_edit  %}  
+   
+        {% bootstrap_form profile_form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary" style="float: left;">{% trans 'UPDATE' %}</button>
+    {% endbuttons %}
+  </div>
+</form>
+
+{% else %}
+    
+
+
+
+
+<form class="update_form" method="post" enctype="multipart/form-data" >
+    <div class=" col-lg-6" style="font-family: 'Times New Roman', Times, serif;">
+        
+    {% csrf_token %}
+    
+    
+    {% bootstrap_form profile_edit  %}  
+   
+        {% bootstrap_form profile_form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary" style="float: right;">{% trans 'UPDATE' %}</button>
+    {% endbuttons %}
+  </div>
+</form>
+
+{% endif %}
+
+
+{% endblock content %}

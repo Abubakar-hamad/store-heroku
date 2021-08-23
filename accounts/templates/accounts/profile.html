@@ -1,0 +1,106 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% load i18n %}
+<div class="promo-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="product-content-right">
+                <div class="product-breadcroumb">
+
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                            {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                </div>
+
+
+
+
+                <div class="row">
+                    <h2 style="font-family: 'Times New Roman', Times, serif ; text-align: left;">{% trans 'My Profile' %}</h2>
+
+                    <div class="col-sm-6">
+                        <div class="product-images">
+                            <div class="product-main-img">
+
+                                {% if profile.image %}
+                                <img class="profile_img" src="{{profile.image.url}}" alt="">
+                                {% else %}
+                                <img class="profile_img"
+                                    src="{% static 'site_static/images/product-detail/no-profile.jpg'%}" alt="" />
+                                {% endif %}
+
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-6">
+                        <div class="product-inner">
+
+
+
+
+                            <table class="table">
+                                
+                                 
+                                <tbody>  
+                                <tr>      <td>{{profile}}</td>		 	 <td style="color:black">{% trans 'name'  %}</td>    </tr>
+                                <tr>      <td>{{profile.user.email}}</td>			 <td  style="color:black">{% trans 'Email'  %}</td>    </tr>
+                                <tr>      <td>{{profile.user.first_name}}</td>			 <td  style="color:black">{% trans 'First Name'  %}</td>    </tr>
+                                <tr>      <td>{{profile.user.last_name}}</td>			 <td  style="color:black">{% trans 'Last Name'  %}</td>    </tr>
+                                <tr>      <td>{{profile.country}}</td>			 <td  style="color:black">{% trans 'Country'  %}</td>    </tr>
+                                <tr>      <td>{{profile.phone_number}}</td>			 <td  style="color:black">{% trans 'phone'  %}</td>    </tr>
+                                <tr>      <td>{{profile.address}}</td>			 <td  style="color:black">{% trans 'Address'  %}</td>    </tr>
+                                <tr>      <td>{{profile.join_date}}</td>			 <td  style="color:black">{% trans 'Join At' %}</td>    </tr>
+
+                                
+                                </tbody>
+                                 
+                              
+                               </table>
+
+
+
+                            <hr>
+                            <a href="{% url 'accounts:edit' %}" class="btn btn-success" role="button"><i
+                                    class="fas fa-user-edit"></i> &nbsp;{% trans 'Edit Info' %}</a>
+                            <a href="{% url 'accounts:change_password' %}" class="btn btn-danger" role="button"><i
+                                    class="fas fa-key"></i> &nbsp; {% trans 'Edit Password' %}</a>
+                            <a href="/" class="btn btn-warning" role="button"><i class="fas fa-home"></i> &nbsp; {%trans 'home' %}</a>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <hr>
+
+
+    </div>
+
+</div>
+{% endblock content %}

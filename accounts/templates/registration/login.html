@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% load i18n %}
+
+
+
+
+
+
+
+
+<div class="container" style="width: 500px; height: fit-content;">
+  <div class="row">
+
+    <div class="contact-form">
+
+      {% if form.errors %}
+      <p>Your username and password didn't match. Please try again.</p>
+      {% endif %}
+
+      {% if next %}
+      {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+        please login with an account that has access.</p>
+      {% else %}
+      <p>Please login to see this page.</p>
+      {% endif %}
+      {% endif %}
+
+      <form method="post" action="{% url 'login' %}">
+        <h1>Log in</h1>
+        <hr>
+        {% csrf_token %}
+        <table style="margin-left: auto;margin-right: auto;">
+          <tr>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+          </tr>
+          <tr>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+          </tr>
+        </table>
+        <button class="btn" type="submit" value="login"><i class="fas fa-sign-in-alt"></i></button>
+        <input type="hidden" name="next" value="{{ next }}" />
+
+      </form>
+      <hr>
+      <div class="mt-6">
+        <div class="d-flex justify-content-center links">
+          <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center links">
+          Don't have an account? <a href="/accounts/signup/" class="ml-2">Sign Up <i class="fas fa-user-plus"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

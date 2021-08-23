@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+
+
+
+
+
+<div class="container" style="width: 500px; height: fit-content;">
+  <div class="row">
+
+    <div class="contact-form">
+      <h1>{% trans 'Contact Us' %}</h1>
+
+      <form action="" method="POST">
+        {% csrf_token %}
+
+
+        <div class="txtb">
+          <label>Email :</label>
+          <input type="email" name="email" value="" placeholder="Enter Your Email">
+        </div>
+
+        <div class="txtb">
+          <label>Subject :</label>
+          <input type="text" name="subject" value="" placeholder="Enter The Subject">
+        </div>
+
+        <div class="txtb">
+          <label>Message :</label>
+          <textarea class="input1" rows="8" cols="60" onkeypress="auto_grow(this) ;"
+            style="margin-top: 20px; resize:none;overflow:hidden; overflow-y: scroll;" name="message"
+            placeholder="Message"></textarea>
+
+        </div>
+
+
+        <button class="btn" type="submit" value="Send">Send &nbsp;<i class="fas fa-reply-all"></i></button>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+{% endblock content %}
+
+
+<!-- <script>
+      $(document).ready(function(){
+        $('.resize').focus(function(){
+          $(this).animate({"height":"100px" , } , "fast");
+        });
+        $('.resize').blur(function(){
+          $(this).animate({"height":"40px" , } , "fast")
+        });
+      });
+    </script> -->

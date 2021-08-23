@@ -1,0 +1,140 @@
+{% extends 'index.html' %}
+{% load bootstrap4 %}
+
+{% load i18n %}
+
+{% block content %}
+{% load static %}
+
+
+
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+
+                    <h2 style="text-align:center">{% trans 'Add New Product' %}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% if LANGUAGE_CODE == 'ar' %}
+<form class="update_form" method="post" enctype="multipart/form-data" style="direction: rtl; text-align: right;">
+    <div class=" col-lg-6" style="font-family: 'Times New Roman', Times, serif; ">
+
+        {% csrf_token %}
+
+
+        {% bootstrap_form add_product %}
+
+
+        {% buttons %}
+        <button type="submit" class="btn btn-primary" style="float: left;">{% trans 'Publish' %}</button>
+        {% endbuttons %}
+    </div>
+    <script>
+        var name = "{{ user.id }}";
+        document.getElementById("alkory").value
+            = name;
+
+    </script>
+
+</form>
+{% else %}
+<form class="update_form" method="post" enctype="multipart/form-data">
+    <div class=" col-lg-6" style="font-family: 'Times New Roman', Times, serif; ">
+
+        {% csrf_token %}
+
+
+        {% bootstrap_form add_product %}
+
+
+        {% buttons %}
+        <button type="submit" class="btn btn-primary" style="float: right;">{% trans 'Publish' %}</button>
+        {% endbuttons %}
+    </div>
+
+    <script>
+        var name = "{{ user.id }}";
+        document.getElementById("alkory").value
+            = name;
+
+    </script>
+
+</form>
+
+{% endif %}
+
+
+
+
+<div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="latest-product">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="latest-product">
+                    <h2 class="section-title" style="  text-decoration: underline; color:rgb(0, 0, 0);">
+                        𝓟𝓻𝓸𝓭𝓾𝓬𝓽𝓼</h2>
+                    <div class="product-carousel">
+
+
+
+                        {% for prod in letest_product %}
+                        <div class="single-product">
+                            <div class="product-f-image">
+
+                                {% if prod.PRImage %}
+
+                                <img class="letest_product" src="{{prod.PRImage.url}}" alt="">
+                                {% else %}
+                                <img class="letest_product"
+                                    src="{% static 'site_static/images/product-detail/no_image.png'%}" alt="" />
+                                {% endif %}
+
+                                <div class="product-hover">
+                                    <a href="{{prod.get_absolute_url}}" class="view-details-link"><i
+                                            class="fa fa-link"></i> See details</a>
+                                </div>
+                            </div>
+
+                            <h2><a href="{{prod.get_absolute_url}}">{{prod.PRName}}</a></h2>
+
+                            <div class="product-carousel-price">
+                                <ins>{{prod.PRPrice}}</del>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

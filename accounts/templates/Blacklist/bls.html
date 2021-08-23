@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% load i18n %}
+
+<style>
+    table th {
+   text-align: center; 
+   color: rgb(0, 64, 255);
+
+}    table tr {
+   text-align: center;    color: red;
+
+}
+
+
+.table {
+   margin: auto;
+   margin-top: 5%;
+   margin-bottom: 3%;
+   width: 75% !important; 
+   /* background-color: slategrey; */
+   font-weight: bold;
+   
+}
+</style>
+
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>{% trans 'Black List' %}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div style= " text-align: center; background-color: rgba(255, 0, 0, 0.39); border: rgba(255, 0, 0, 0.658) solid 3px;"> <h3> {% trans 'The site prohibits dealing with any product that contains this data ...' %}</h3></div>
+
+
+<div class="container">
+
+
+    <table  class="table table-hover">
+        <thead>
+          <tr >
+              
+            <th scope="col">{% trans 'address' %}</th>
+            <th scope="col">{% trans 'name' %}</th>
+            <th scope="col">{% trans 'phone'%}</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for bls  in list  %}
+
+          <tr> 
+            <td>{{bls.BLSTAddress}}</td>
+            <td>{{bls.BLSTUser}}</td>
+            <td>{{bls.BLSTPhone}}</td>
+          </tr>
+          
+          {% endfor %}
+        </tbody>
+      </table>
+ 
+</div>
+    
+{% endblock content %}
+    

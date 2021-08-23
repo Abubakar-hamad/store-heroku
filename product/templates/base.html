@@ -1,0 +1,190 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+
+<div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="latest-product">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End main content area -->
+
+<div class="promo-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container" style="float: center;">
+        <h2 class="section-title" style="   color:rgb(12, 12, 12);">{% trans 'Our services' %} </h2>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>{% trans 'Buying & Selling' %}</p>
+
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo ">
+                    <i class="fa fa-truck"></i>
+                    <p>{% trans 'Delivery' %} </p>
+                </div>
+
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo">
+                    <i class="fa fa-lock"></i>
+                    <p>{% trans 'Technical service' %}</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo">
+                    <i class="fa fa-gift"></i>
+                    <p>{% trans 'Adverts & auctions' %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End promo area -->
+
+<div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="latest-product">
+                    <h2 class="section-title" style=" color:rgb(0, 0, 0);">{% trans 'Letest Product' %}</h2>
+
+                    <div class="col-md-3">
+                        <h1></h1>
+                        <ul>
+
+                            <li>
+                                <a href="/products/">{% trans 'All_Products' %}</a>
+                                <hr>
+
+                            </li>
+                            <li><a
+                                    href="/products/?PRName=&PRDesc=&PRCategory=&PRBrand=&PRPrice=&PRIsNew=unknown&PRIsUsed=true"><span
+                                        class="label label-warning">{% trans 'Used product' %} !</a> | <a
+                                    href="/products/?PRName=&PRDesc=&PRCategory=&PRBrand=&PRPrice=&PRIsNew=unknown&PRIsUsed=false"><span
+                                        class="label label-danger mr-3"> {% trans 'new product' %}</span></a></li>
+                            <hr>
+                            <li><a
+                                    href="/products/?PRName=&PRDesc=&PRCategory=1&PRBrand=&PRPrice=&PRIsNew=unknown&PRIsUsed=unknown"><span
+                                        class="label label-primary"> {% trans 'Electronic Devices' %}</span></a></li>
+                            <hr>
+
+                            <li><a
+                                    href="/products/?PRName=&PRDesc=&PRCategory=2&PRBrand=&PRPrice=&PRIsNew=unknown&PRIsUsed=unknown"><span
+                                        class="label label-info">{% trans 'CLOTHES & STUFF' %}</span></a></li>
+                            <hr>
+                            <li><a
+                                    href="/products/?PRName=&PRDesc=&PRCategory=3&PRBrand=&PRPrice=&PRIsNew=unknown&PRIsUsed=unknown"><span
+                                        class="label label-danger mr-3">{% trans 'Furniture & Household' %}</span></a>
+                            </li>
+                            <hr>
+                            <li><a
+                                    href="/products/?PRName=&PRDesc=&PRCategory=4&PRBrand=&PRPrice=&PRIsNew=unknown&PRIsUsed=unknown"><span
+                                        class="label label-default">{% trans 'Vehicles and Mechanics' %}</span></a></li>
+                            <hr>
+                            <li><a
+                                    href="/products/?PRName=&PRDesc=&PRCategory=5&PRBrand=&PRPrice=&PRIsNew=unknown&PRIsUsed=unknown"><span
+                                        class="label label-success">{% trans 'Style & Fashion' %}</span></a></li>
+
+                        </ul>
+
+
+
+                    </div>
+                    <div class="col-md-9">
+                        <!-- <h1>{% if category %}{{category.CAName}} {% else %}all{%endif%}</h1> -->
+                        <div class="product-carousel">
+
+
+
+
+
+                            {% for prod in letest_product %}
+                            <div class="single-product">
+                                <div class="product-f-image">
+
+                                    {% if prod.PRImage %}
+
+                                    <img class="letest_product" src="{{prod.PRImage.url}}" alt="">
+                                    {% else %}
+                                    <img class="letest_product"
+                                        src="{% static 'site_static/images/product-detail/no_image.png'%}" alt="" />
+                                    {% endif %}
+
+                                    <div class="product-hover">
+                                        <!-- <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> {% trans 'favorite' %}</a> -->
+                                        <a href="{{prod.get_absolute_url}}" class="view-details-link"
+                                            style="text-align: center;"><i class="fa fa-link"></i> {% trans 'see more'%}</a>
+                                    </div>
+                                </div>
+
+                                <h2><a href="{{prod.get_absolute_url}}">{{prod.PRName}}</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>{{prod.PRPrice}}</del>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End main content area -->
+
+<div class="brands-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="brand-wrapper">
+                    <h2 class="section-title" style="   color:rgb(0, 0, 0);">{% trans 'Brands' %}</h2>
+                    <div class="brand-list">
+                        <img src="{% static 'site_static/images/logo/apple.jpg'%}" alt="">
+                        <img src="{% static 'site_static/images/logo/samsung.jpg'%}" alt="">
+                        <img src="{% static 'site_static/images/logo/huawei.jpg'%}" alt="">
+                        <img src="{% static 'site_static/images/logo/LG.jpg'%}" alt="">
+                        <img src="{% static 'site_static/images/logo/molinx.jpg'%}" alt="">
+                        <img src="{% static 'site_static/images/logo/toshiba.jpg'%}" alt="">
+                        <img src="{% static 'site_static/images/logo/sony.jpg'%}" alt="">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End brands area -->
+
+<div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="latest-product">
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End main content area -->
+{% endblock content %}

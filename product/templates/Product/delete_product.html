@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+
+                    <h2 style="font-family: 'Times New Roman', Times, serif ; text-align:center">{% trans 'Delete'%}
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style=" width:fit-content">
+    <div class="row">
+
+
+        <br>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <br>
+
+            <h2 style="font-size: 40px; color: rgb(39, 78, 161);">Are you Sure you want to Delete This? </h2>
+
+            <br>
+            <div class="" style="text-align: center;   margin-top: 50px;">
+
+                <input class="btn btn-danger" type="submit" value="yes" />
+                &nbsp;
+                <a href='/my_product' class="btn btn-primary">no</a>
+                <div style="margin-top: 100px;">
+                    &nbsp;
+
+                </div>
+            </div>
+
+        </form>
+        </dev>
+    </div>
+</div>
+
+
+{% endblock content %}

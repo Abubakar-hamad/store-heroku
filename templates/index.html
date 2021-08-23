@@ -1,0 +1,337 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OUS-Store</title>
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet'
+        type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'site_static/css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="{% static 'site_static/css/font-awesome.min.css'%}" rel="stylesheet">
+    <link href="{% static 'site_static/css/all.css'%}" rel="stylesheet">
+    <link href="{% static 'site_static/css/fontawesome.css'%}" rel="stylesheet">
+    <link href="{% static 'site_static/css/solid.css'%}" rel="stylesheet">
+    <link href="{% static 'site_static/css/brands.css'%}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'site_static/css/owl.carousel.css'%} " rel="stylesheet">
+    <link href="{% static 'site_static/css/style.css'%}" rel="stylesheet">
+    <link href="{% static 'site_static/css/responsive.css'%}" rel="stylesheet">
+
+
+
+
+</head>
+
+<body>
+
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="user-menu">
+                        <ul>
+                            <li><a href="/"><i class="fas fa-home"></i></i>Home</a></li>
+
+                            <li><a href="/my_product"><i class="fa fa-heart"></i> My product</a></li>
+                            <li><a href="/accounts/profile/"><i class="fa fa-user"></i> My Account</a></li>
+
+                            <li><a href="/contact/"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="text-align: right;">
+
+                    <div class="col-md-4">
+                        <div class="header-left">
+                            <ul class="list-unstyled list-inline">
+
+
+
+                                <li>
+                                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                        {% get_current_language as LANGUAGE_CODE %}
+                                        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
+                                        {% if LANGUAGE_CODE == 'ar' %}
+                                        <button type='submit' name='language' value='en'>
+                                            <span class="label"></span>English
+                                        </button>
+                                        {% else %}
+                                        <button type='submit' name='language' value='ar'>
+                                            <span class="label"></span>العربيـــة
+                                        </button>
+                                        {% endif %}
+                                    </form>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End header area -->
+
+    <div class="site-branding-area">
+        <div class="container">
+            <div class="row">
+
+
+
+                <div class="font">
+
+                    <div class="col-2">
+                        <div class="logo">
+                            <h1 style="text-align: left ;"><a href="/">𝕆𝕌𝕊|<span>𝓢𝓽𝓸𝓻𝓮 </span></a></h1>
+                        </div>
+                    </div>
+
+
+
+                    {% if user.is_authenticated %}
+
+
+                    <div class="col-4">
+                        <div class="shopping-item">
+                            <a href="/accounts/logout/"> {% trans 'Log out' %} <i class="fas fa-sign-out-alt"></i> </a>
+                        </div>
+
+
+                        <!-- <div class="col-sm-9"> -->
+
+                        <div class="shopping-item">
+                            <a href="{% url 'accounts:profile' %}">{{request.user}} , {% trans 'Hello' %} </a>
+                        </div>
+
+
+                        {% else %}
+                        <div class="col-4">
+                            <div class="shopping-item">
+                                <a href="{% url 'accounts:login' %}"> {% trans 'Log In' %} &nbsp; <i
+                                        class="fas fa-sign-in-alt"></i></a>
+                            </div>
+                            <!-- <div class="col-sm-9"> -->
+                            <div class="shopping-item">
+                                <a href="{% url 'accounts:signup' %}">{% trans 'SignUp' %}&nbsp;<i
+                                        class="fas fa-user-plus"></i></a>
+
+
+                                {% endif %}
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- End site branding area -->
+
+    <div class="mainmenu-area">
+        <div class="container">
+            <!-- <div class="row"> -->
+
+
+
+            {% if LANGUAGE_CODE == 'ar' %}
+            <div class="row" style="float: right; text-align: right; direction: rtl; ">
+                <div class="navbar-header">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="font">
+                        <div class="navbar-collapse collapse">
+
+                            <ul class="nav navbar-nav">
+                                <li><a href="/accounts/blist/">{% trans 'Black List' %}</a></li>
+
+                                <li><a href="/my_product">منتجاتي</a></li>
+                                <li><a href="{% url 'accounts:profile' %}">{% trans 'Profile' %}</a></li>
+                                <li><a href="/add_product/">{% trans 'Add New' %}</a></li>
+                                <li><a href="/products/">{% trans 'All_Products' %}</a></li>
+                                <li><a href="/">{% trans 'Home' %}</a></li>
+
+                            </ul>
+                            {% else %}
+                            <div class="row">
+                                <div class="font">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                            data-target=".navbar-collapse">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <div class="navbar-collapse collapse">
+                                        <ul class="nav navbar-nav">
+                                            <li><a href="/">{% trans 'Home' %}</a></li>
+                                            <li><a href="/products/">{% trans 'All_Products' %}</a></li>
+
+                                            <li><a href="/add_product/">{% trans 'Add New' %}</a></li>
+                                            <li><a href="{% url 'accounts:profile' %}">{% trans 'Profile' %}</a></li>
+                                            <li><a href="/my_product">My product</a></li>
+                                            <li><a href="/accounts/blist/">{% trans 'Black List' %}</a></li>
+
+
+                                        </ul>
+                                        {% endif %}
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- End mainmenu area -->
+                </div>
+
+                {% block search %}
+
+                {% endblock search %}
+
+
+
+
+
+                {% block content %}
+
+                {% endblock content %}
+
+
+
+                <div class="footer-top-area">
+
+                    <div class="container">
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="footer-about-us">
+
+                                    <h2>𝕆𝕌𝕊|<span>𝓢𝓽𝓸𝓻𝓮</span></h2>
+                                    <p>{% trans 'Buying and selling used and new products...We advertise and display auctions..We provide technical solutions for your software projects' %}</p>
+                                    <div class="footer-social">
+                                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                        <a href="#" target="_blank"><i class="fab fa-git"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="footer-menu">
+                                    <h2 class="footer-wid-title">{% trans 'User Navigation' %} </h2>
+                                    <ul>
+                                        <li><a href="/accounts/profile/"><i class="fas fa-user"></i> &nbsp; My
+                                                account</a></li>
+                                        <li><a href="/accounts/profile/edit/"><i class="fas fa-user-edit"></i> &nbsp;
+                                                Edit Profile</a></li>
+                                        <li><a href="/my_product"> <i class="fab fa-product-hunt"></i> &nbsp; My
+                                                Products</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <div class="zigzag-bottom"></div>
+                            <div class="col-md-4 col-sm-6">
+
+                                <div class="footer-menu">
+                                    <h2 class="footer-wid-title"> {% trans 'Information' %} </h2>
+                                    <ul>
+                                        <li><a> <i class="fas fa-street-view"></i> &nbsp;:&nbsp; Omdurman</a></li>
+                                        <li><a><i class="fas fa-phone-alt"></i> &nbsp;:&nbsp; +249922838007</a></li>
+                                        <li><a></a><i class="fas fa-envelope"></i> &nbsp;:&nbsp; testalneel@gmail.com
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End footer top area -->
+
+                <div class="footer-bottom-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="copyright">
+                                    <p>&copy; 2020-2021 OUS. All Rights Reserved</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div> <!-- End footer bottom area -->
+
+                <!-- Latest jQuery form server -->
+                <script src="{% static 'site_static/js/jquery.min.js'%}"></script>
+                <script src="{% static 'site_static/js/all.js'%}"></script>
+                <script src="{% static 'site_static/js/brands.js'%}"></script>
+                <script src="{% static 'site_static/js/solid.js'%}"></script>
+                <script src="{% static 'site_static/js/fontawesome.js'%}"></script>
+
+                <!-- Bootstrap JS form CDN -->
+                <script src="{% static 'site_static/js/bootstrap.min.js'%}"></script>
+
+
+
+
+                <!-- jQuery sticky menu -->
+                <script src="{% static 'site_static/js/owl.carousel.min.js'%}"></script>
+                <script src="{% static 'site_static/js/jquery.sticky.js'%}"></script>
+
+                <!-- jQuery easing -->
+                <script src="{% static 'site_static/js/jquery.easing.1.3.min.js'%}"></script>
+
+                <!-- Main Script -->
+                <script src="{% static 'site_static/js/main.js'%}"></script>
+                <script src="{% static 'site_static/js/jquery-3.6.0.min.js'%}"></script>
+
+
+
+
+
+
+</body>
+
+</html>

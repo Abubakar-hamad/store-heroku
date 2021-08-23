@@ -1,0 +1,150 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+{% load bootstrap4 %}
+
+
+<!-- <div class="container" style="display: inline-block;"> -->
+<div class="col" style="position: relative;     right: -1px;
+position: relative;
+bottom: -50px;">
+    <br>
+    <!-- <div class="col-4" style="width: max-content; height: fit-content;"> -->
+    <div class="font_filter">
+
+        <form method="GET">
+            <div class=" col-lg-1 ">
+                <h1></h1>
+                {% bootstrap_form filter_data.form %}
+                <button class="btn" type="submit" style="vertical-align:middle"><span>{% trans 'GO' %} &nbsp;<i
+                            class="fas fa-filter"></i> </span></button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+<div class="container" style="display: inline-block;">
+
+    <div class="col">
+
+        {% for product in all_product %}
+
+        <div class="col-md-3 mx-auto">
+            <div class="product-upper"
+                style=" flex-grow: inherit;  padding-left: 40px; padding-right: 20px; margin-left:10% ; margin-top: 50px;">
+                <div>
+                    {% if product.PRImage %}
+
+                    <img class="product_img" src="{{product.PRImage.url}}" alt="">
+                    {% else %}
+                    <img class="product_img" src="{% static 'site_static/images/product-detail/no_image.png'%}"
+                        alt="" />
+                    {% endif %}
+                    {% if product.PRSold %}
+                    <a href="">
+                        <span style="position: absolute;
+                        background: rgba(255, 0, 98, 0.705);
+                        height: 6rem;
+                        top: 10rem;
+                        right: 4.5rem;
+                        width: 15rem;
+                        text-align: center;
+                        line-height: 2rem;
+                        font-size: 3rem;
+                        color: white;
+                        border: 20px solid #00f0;"> {% trans 'Sold' %}</span>
+                    </a>
+                    {% endif %}
+
+                    <div class="font"><a href="{{product.get_absolute_url}}">{{product}}
+                            <br>
+
+                            <span class="label label-primary"> {{product.PRPrice}} SDG</b> {% if product.PRIsNew %} |
+
+                                <span class="label label-danger">new</span>
+
+                                {% endif %}
+
+                                {% if product.PRIsUsed %} |
+
+                                <span class="label label-success mr-1 "> Used !</span>
+
+                                {% endif %} </div></span> </a>
+                    <!-- <button class="button"  style="vertical-align:middle"><span>see more </span></button> -->
+                    <!-- <br>    <a class="add_to_cart_button"   style="float: right;" href="{{product.get_absolute_url}}">See more</a> -->
+
+                    <!-- <ins>$899.00</ins> <del>$999.00</del> -->
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        {% endfor %}
+
+
+
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-11">
+            <div class="product-pagination text-right">
+                <nav>
+                    <ul class="pagination">
+
+
+                        {% if all_product.has_previous %}
+                        <li class="page-item"><a class="page-link"
+                                href="?page={{all_product.previous_page_number}}">Previous</a></li>
+                        {% else %}
+                        <li class="disables"></li>
+                        {% endif %}
+
+
+                        {% for pages in all_product.paginator.page_range %}
+                        {% if all_product.number == pages %}
+
+                        <li class="page-item"><a class="page-link current " href="#">{{pages}}</a></li>
+
+                        {% else %}
+
+                        <li class="page-item"><a class="page-link current" href="?page={{pages}}">{{pages}}</a></li>
+
+                        {% endif %}
+                        {% endfor %}
+                        {% if all_product.has_next %}
+
+                        <li class="page-item"><a style="text-align: left;" class="page-link"
+                                href="?page={{all_product.next_page_number}}">Next</a>
+                        </li>
+                        {% else %}
+                        <li class="disables"></li>
+
+
+
+                        {% endif %}
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+{% endblock content %}

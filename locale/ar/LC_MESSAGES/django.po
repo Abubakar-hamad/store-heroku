@@ -1,0 +1,419 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-23 01:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: accounts/models.py:16
+msgid "user"
+msgstr "المستخدم"
+
+#: accounts/models.py:17
+msgid "Image"
+msgstr "صورة"
+
+#: accounts/models.py:18 accounts/models.py:59
+#: accounts/templates/Blacklist/bls.html:56
+#: accounts/templates/accounts/profile.html:66
+msgid "phone"
+msgstr "هاتف"
+
+#: accounts/models.py:20 accounts/templates/Blacklist/bls.html:54
+msgid "address"
+msgstr "العنوان"
+
+#: accounts/models.py:21
+msgid "Join Date"
+msgstr "تاريخ الانضمام"
+
+#: accounts/models.py:38 templates/index.html:175 templates/index.html:199
+msgid "Profile"
+msgstr "الحساب"
+
+#: accounts/models.py:39
+msgid "Profiles"
+msgstr "الحسابات"
+
+#: accounts/models.py:58
+#, fuzzy
+#| msgid "Last Name"
+msgid "Name"
+msgstr "الاسم"
+
+#: accounts/models.py:60 accounts/templates/accounts/profile.html:67
+#: product/models.py:26
+msgid "Address"
+msgstr "العنوان"
+
+#: accounts/templates/Blacklist/bls.html:37 templates/index.html:172
+#: templates/index.html:201
+msgid "Black List"
+msgstr "قائمة الحظر"
+
+#: accounts/templates/Blacklist/bls.html:44
+msgid "The site prohibits dealing with any product that contains this data ..."
+msgstr "يحظر الموقع التعامل مع المنتجات التي تحتوي على بيانات هؤلاء الاشخاص .."
+
+#: accounts/templates/Blacklist/bls.html:55
+#: accounts/templates/accounts/profile.html:61
+msgid "name"
+msgstr "الاسم"
+
+#: accounts/templates/accounts/profile.html:29
+msgid "My Profile"
+msgstr "حسابي"
+
+#: accounts/templates/accounts/profile.html:62
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+#: accounts/templates/accounts/profile.html:63
+msgid "First Name"
+msgstr "الاسم الاول"
+
+#: accounts/templates/accounts/profile.html:64
+msgid "Last Name"
+msgstr "الاسم الاخير"
+
+#: accounts/templates/accounts/profile.html:65
+msgid "Country"
+msgstr "البلد"
+
+#: accounts/templates/accounts/profile.html:68
+msgid "Join At"
+msgstr "تاريخ الانضمام"
+
+#: accounts/templates/accounts/profile.html:80
+msgid "Edit Info"
+msgstr "تعديل"
+
+#: accounts/templates/accounts/profile.html:82
+msgid "Edit Password"
+msgstr "تغير كلمة المرور"
+
+#: accounts/templates/accounts/profile.html:83
+msgid "home"
+msgstr "الرئيسية"
+
+#: accounts/templates/accounts/profile_edit.html:16
+msgid "Edit My Profile"
+msgstr "تعديل حسابي"
+
+#: accounts/templates/accounts/profile_edit.html:47
+#: accounts/templates/accounts/profile_edit.html:68
+msgid "UPDATE"
+msgstr "تحديث"
+
+#: contact/templates/contact.html:16
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+#: product/filters.py:11
+msgid "icontains"
+msgstr ""
+
+#: product/models.py:18
+msgid "user_name"
+msgstr "الاسم"
+
+#: product/models.py:19
+msgid "Title"
+msgstr "العنوان"
+
+#: product/models.py:20
+msgid "Description "
+msgstr "وصف"
+
+#: product/models.py:21
+msgid "Category"
+msgstr "تصنيف"
+
+#: product/models.py:22 settings/models.py:14
+msgid "Brand"
+msgstr "الماركة"
+
+#: product/models.py:23
+msgid " Price"
+msgstr "السعر"
+
+#: product/models.py:24
+msgid "Product Image"
+msgstr "صورة"
+
+#: product/models.py:25
+msgid "Conatct Number"
+msgstr "هاتف"
+
+#: product/models.py:27
+msgid "New"
+msgstr "جديد"
+
+#: product/models.py:28
+msgid "Used"
+msgstr "مستخدم"
+
+#: product/models.py:29
+msgid "Created At"
+msgstr "تم النشر"
+
+#: product/models.py:30 product/templates/Product/all_product.html:59
+#: product/templates/Product/single_product.html:116
+msgid "Sold"
+msgstr "تم البيع"
+
+#: product/models.py:57
+msgid "Product Images"
+msgstr "صورة"
+
+#: product/templates/Product/add_product.html:18
+msgid "Add New Product"
+msgstr "اضافة منتج جديد"
+
+#: product/templates/Product/add_product.html:37
+#: product/templates/Product/add_product.html:59
+msgid "Publish"
+msgstr "نشر"
+
+#: product/templates/Product/all_product.html:21
+msgid "GO"
+msgstr "ذهاب"
+
+#: product/templates/Product/delete_product.html:13
+#: product/templates/Product/my_product.html:58
+msgid "Delete"
+msgstr "حذف"
+
+#: product/templates/Product/edit_product.html:18
+msgid "Update Product"
+msgstr "تعديل"
+
+#: product/templates/Product/edit_product.html:37
+#: product/templates/Product/edit_product.html:59
+msgid "Update"
+msgstr "تحديث"
+
+#: product/templates/Product/my_product.html:36
+msgid "My Products"
+msgstr "منتجاتي"
+
+#: product/templates/Product/my_product.html:55
+#, fuzzy
+#| msgid "Title"
+msgid "title"
+msgstr "العنوان"
+
+#: product/templates/Product/my_product.html:56
+msgid "Show"
+msgstr "عرض"
+
+#: product/templates/Product/my_product.html:57
+msgid "Change"
+msgstr "تعديل"
+
+#: product/templates/Product/my_product.html:82
+msgid "You Must Be Login First"
+msgstr "يجب التسجيل أولا"
+
+#: product/templates/Product/single_product.html:17
+msgid "Detailes"
+msgstr ""
+
+#: product/templates/Product/single_product.html:33
+msgid "Recent Product"
+msgstr "الاخيرة"
+
+#: product/templates/Product/single_product.html:226
+#: product/templates/base.html:128
+msgid "favorite"
+msgstr "المفضلة"
+
+#: product/templates/Product/single_product.html:229
+#: product/templates/base.html:130
+msgid "see more"
+msgstr "المزيد"
+
+#: product/templates/base.html:23
+msgid "Our services"
+msgstr "خدماتنا"
+
+#: product/templates/base.html:29
+msgid "Buying & Selling"
+msgstr "الببع والشراء"
+
+#: product/templates/base.html:36
+msgid "Delivery"
+msgstr "التوصيل"
+
+#: product/templates/base.html:43
+msgid "Technical service"
+msgstr "خدمات تقنية"
+
+#: product/templates/base.html:49
+msgid "Adverts & auctions"
+msgstr "اعلانات و مزادات"
+
+#: product/templates/base.html:63
+msgid "Letest Product"
+msgstr "الأخيرة"
+
+#: product/templates/base.html:70 templates/index.html:177
+#: templates/index.html:196
+msgid "All_Products"
+msgstr "المنتجات"
+
+#: product/templates/base.html:76
+msgid "Used product"
+msgstr "مستخدم"
+
+#: product/templates/base.html:78
+msgid "new product"
+msgstr "جديد"
+
+#: product/templates/base.html:82
+msgid "Electronic Devices"
+msgstr "الكترونيات"
+
+#: product/templates/base.html:87
+msgid "CLOTHES & STUFF"
+msgstr "ملابس"
+
+#: product/templates/base.html:91
+msgid "Furniture & Household"
+msgstr "اثاثات"
+
+#: product/templates/base.html:96
+msgid "Vehicles and Mechanics"
+msgstr "سيارات"
+
+#: product/templates/base.html:100
+msgid "Style & Fashion"
+msgstr "موضة"
+
+#: product/templates/base.html:161 settings/models.py:15
+msgid "Brands"
+msgstr "الماركات"
+
+#: settings/models.py:9
+msgid "Brand name"
+msgstr "اسم الماركة"
+
+#: settings/models.py:10
+msgid "Brand Desc"
+msgstr "وصف"
+
+#: settings/models.py:25
+msgid "Variant Name"
+msgstr ""
+
+#: settings/models.py:26
+msgid "Variant Descri"
+msgstr ""
+
+#: settings/models.py:31
+msgid "Variant"
+msgstr ""
+
+#: settings/models.py:32
+msgid "Variants"
+msgstr ""
+
+#: templates/index.html:112
+msgid "Log out"
+msgstr "خروج"
+
+#: templates/index.html:119
+msgid "Hello"
+msgstr "مرحباً"
+
+#: templates/index.html:126
+msgid "Log In"
+msgstr "دخول"
+
+#: templates/index.html:131
+msgid "SignUp"
+msgstr "تسجيل جديد"
+
+#: templates/index.html:176 templates/index.html:198
+msgid "Add New"
+msgstr "اضافة منتج"
+
+#: templates/index.html:178 templates/index.html:195
+msgid "Home"
+msgstr "الرئيسية"
+
+#: templates/index.html:247
+msgid ""
+"Buying and selling used and new products...We advertise and display "
+"auctions..We provide technical solutions for your software projects"
+msgstr ""
+"شراء وبيع المنتجات المستعملة والجديدة ... نعلن ونعرض المزادات .. نقدم الحلول "
+"التقنية لمشاريعك البرمجية"
+
+#: templates/index.html:260
+msgid "User Navigation"
+msgstr "تنقل سريع"
+
+#: templates/index.html:277
+msgid "Information"
+msgstr "المعلومات"
+
+#, fuzzy
+#~| msgid "My Products"
+#~ msgid "MyProduct"
+#~ msgstr "منتجاتي"
+
+#, fuzzy
+#~| msgid "Update Product"
+#~ msgid "Edit Product"
+#~ msgstr "تعديل"
+
+#, fuzzy
+#~| msgid "Product Image"
+#~ msgid "Product "
+#~ msgstr "صورة"
+
+#, fuzzy
+#~| msgid "Edit Info"
+#~ msgid "Edit"
+#~ msgstr "تعديل"
+
+#, fuzzy
+#~| msgid "Phone :"
+#~ msgid "Phone"
+#~ msgstr "هاتف"
+
+#~ msgid "name:"
+#~ msgstr "الاسم"
+
+#~ msgid "Email :"
+#~ msgstr "البريد الالكتروني"
+
+#~ msgid "First Name :"
+#~ msgstr "الاسم الاول"
+
+#~ msgid "Last Name :"
+#~ msgstr "الاسم الاخير"
+
+#~ msgid "Country :"
+#~ msgstr "البلد"
+
+#~ msgid "Address :"
+#~ msgstr "العنوان"
+
+#~ msgid "Join At :"
+#~ msgstr "تاريخ الانضمام"

@@ -1,0 +1,80 @@
+{% extends 'index.html' %}
+{% load bootstrap4 %}
+
+{% load i18n %}
+
+{% block content %}
+{% load static %}
+
+
+
+
+<div class="product-big-title-area">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="product-bit-title text-center">
+
+                  <h2 style="font-family: 'Times New Roman', Times, serif ; text-align:center">{% trans 'Update Product' %}</h2>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+  
+
+            {% if LANGUAGE_CODE == 'ar' %}
+            <form class="update_form" method="post" enctype="multipart/form-data" style="direction: rtl; text-align: right;" >
+                <div class=" col-lg-6" style="font-family: 'Times New Roman', Times, serif; ">
+                    
+                {% csrf_token %}
+                
+                
+                {% bootstrap_form  form %}  
+           
+                    
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary" style="float: left;">{% trans 'Update' %}</button>
+                {% endbuttons %}
+              </div>
+              <script>
+                var name = "{{ user.id }}";
+                document.getElementById("alkory").value
+                = name ;
+
+             </script>
+            
+            </form>
+            {% else %}
+            <form class="update_form" method="post" enctype="multipart/form-data" >
+                <div class=" col-lg-6" style="font-family: 'Times New Roman', Times, serif; ">
+                    
+                {% csrf_token %}
+                
+                
+                {% bootstrap_form  form %} 
+               
+                    
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary" style="float: right;">{% trans 'Update' %}</button>
+                {% endbuttons %}
+              </div>
+
+              <script>
+                    var name = "{{ user.id }}";
+                    document.getElementById("alkory").value
+                    = name ;
+
+              </script>
+            
+            </form>
+                
+            {% endif %}
+                
+
+
+
+
+
+
+{% endblock content %}
